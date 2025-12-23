@@ -4,7 +4,7 @@ policies:
     filters:
       - type: value
         key: "tag:Environment"
-        value: "dev"
+        value: "prod"
       - type: value
         key: State.Name
         value: stopped
