@@ -1,6 +1,6 @@
 vars:
   VM_ENV: prod
-  
+
 policies:
   - name: stop-ec2
     resource: ec2
