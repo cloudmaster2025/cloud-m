@@ -7,6 +7,12 @@ on:
         description: "Target cloud (aws | azure | gcp)"
         required: true
         default: "aws"
+
+      vm:
+        description: "Target VM environment (dev | test | prod)"
+        required: true
+        default: "dev"
+
       action:
         description: "Action to perform (start | stop)"
         required: true
