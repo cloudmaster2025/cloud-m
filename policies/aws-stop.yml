@@ -7,7 +7,7 @@ policies:
     filters:
       - type: value
         key: "tag:Environment"
-        value: "{VM_ENV}"
+        value: "prod"
       - type: value
         key: State.Name
         value: running
