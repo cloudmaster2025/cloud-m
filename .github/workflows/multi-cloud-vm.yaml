@@ -9,9 +9,9 @@ on:
         default: "aws"
 
       vm:
-        description: "Target VM environment (dev | test | prod)"
+        description: "Target VM (vm1 | vm2 | vm3)"
         required: true
-        default: "dev"
+        default: "vm1"
 
       action:
         description: "Action to perform (start | stop)"
@@ -64,8 +64,8 @@ jobs:
           POLICY_PROCESSED="policies/${{ inputs.cloud }}-${{ inputs.action }}-processed.yml"
           OUTPUT_DIR="output/${{ inputs.cloud }}-${{ inputs.action }}-${{ inputs.vm }}"
     
-          echo "Running for Environment=${{ inputs.vm }}"
-          export VM_ENV=${{ inputs.vm }}
+          echo "Running for VM=${{ inputs.vm }}"
+          export VM=${{ inputs.vm }}
     
           # Substitute environment variables in the policy file
           envsubst < $POLICY > $POLICY_PROCESSED
