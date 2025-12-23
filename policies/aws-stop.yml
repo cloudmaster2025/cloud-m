@@ -3,8 +3,8 @@ policies:
     resource: ec2
     filters:
       - type: value
-        key: "tag:Environment"
-        value: "${VM_ENV}"
+        key: "tag:VM"
+        value: "${VM}"
       - type: value
         key: State.Name
         value: running
