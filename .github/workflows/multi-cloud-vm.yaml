@@ -65,7 +65,10 @@ jobs:
 
           echo "Running for Environment=${{ inputs.vm }}"
 
-          custodian run --vars VM_ENV=${{ inputs.vm }} -s $OUTPUT_DIR $POLICY
+          export VM_ENV=${{ inputs.vm }}
+
+          custodian run -s $OUTPUT_DIR $POLICY
+
 
 
 
