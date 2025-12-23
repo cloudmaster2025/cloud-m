@@ -55,5 +55,6 @@ jobs:
       - name: Run Cloud Custodian policy
         run: |
           POLICY="policies/${{ inputs.cloud }}-${{ inputs.action }}.yml"
+          OUTPUT_DIR="output/${{ inputs.cloud }}-${{ inputs.action }}"
           echo "Running policy: $POLICY"
-          custodian run $POLICY
+          custodian run -s $OUTPUT_DIR $POLICY
