@@ -1,9 +1,12 @@
 policies:
   - name: start-ec2
-    resource: aws.ec2
+    resource: ec2
     filters:
-    - type: value
-      key: State.Name
-      value: stopped
+      - type: value
+        key: "tag:Environment"
+        value: "${VM_ENV}"
+      - type: value
+        key: State.Name
+        value: stopped
     actions:
       - start
