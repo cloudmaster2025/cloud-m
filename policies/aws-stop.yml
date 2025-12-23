@@ -4,7 +4,8 @@ policies:
     filters:
       - type: value
         key: "tag:Environment"
-        value: "{{ env.VM_ENV }}"
+        value_from:
+          url: "env://VM_ENV"
       - type: value
         key: State.Name
         value: running
