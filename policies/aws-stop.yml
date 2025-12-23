@@ -1,0 +1,7 @@
+policies:
+  - name: stop-ec2
+    resource: aws.ec2
+    filters:
+      - instance-state-name: running
+    actions:
+      - stop

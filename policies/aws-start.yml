@@ -5,11 +5,3 @@ policies:
       - instance-state-name: stopped
     actions:
       - start
-
-policies:
-  - name: stop-ec2
-    resource: aws.ec2
-    filters:
-      - instance-state-name: running
-    actions:
-      - stop
