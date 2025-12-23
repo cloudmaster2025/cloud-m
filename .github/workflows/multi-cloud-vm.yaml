@@ -61,13 +61,17 @@ jobs:
       - name: Run Cloud Custodian policy
         run: |
           POLICY="policies/${{ inputs.cloud }}-${{ inputs.action }}.yml"
+          POLICY_PROCESSED="policies/${{ inputs.cloud }}-${{ inputs.action }}-processed.yml"
           OUTPUT_DIR="output/${{ inputs.cloud }}-${{ inputs.action }}-${{ inputs.vm }}"
-
+    
           echo "Running for Environment=${{ inputs.vm }}"
-
           export VM_ENV=${{ inputs.vm }}
-
-          custodian run -s $OUTPUT_DIR $POLICY
+    
+          # Substitute environment variables in the policy file
+          envsubst < $POLICY > $POLICY_PROCESSED
+    
+          # Run custodian with the processed policy
+          custodian run -s $OUTPUT_DIR $POLICY_PROCESSED
 
 
 
