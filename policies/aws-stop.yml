@@ -2,6 +2,8 @@ policies:
   - name: stop-ec2
     resource: aws.ec2
     filters:
-      - instance-state-name: running
+    - type: value
+      key: State.Name
+      value: running
     actions:
       - stop
