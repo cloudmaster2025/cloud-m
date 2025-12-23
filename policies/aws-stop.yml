@@ -1,11 +1,13 @@
+vars:
+  VM_ENV: prod
+  
 policies:
   - name: stop-ec2
     resource: ec2
     filters:
       - type: value
         key: "tag:Environment"
-        value_from:
-          url: "env://VM_ENV"
+        value: "{VM_ENV}"
       - type: value
         key: State.Name
         value: running
