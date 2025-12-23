@@ -4,7 +4,7 @@ policies:
     filters:
       - type: value
         key: "tag:Environment"
-        value: "{{ env.VM_ENV }}"
+        value: "dev"
       - type: value
         key: State.Name
         value: stopped
