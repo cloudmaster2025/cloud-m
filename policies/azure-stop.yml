@@ -1,0 +1,13 @@
+policies:
+  - name: stop-azure-vm
+    resource: azure.vm
+    filters:
+      - type: value
+        key: tags.VM
+        value: "${VM}"
+      - type: value
+        key: properties.provisioningState
+        value: Running
+    actions:
+      - type: stop
+

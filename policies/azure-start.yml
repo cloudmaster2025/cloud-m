@@ -1,0 +1,13 @@
+policies:
+  - name: start-azure-vm
+    resource: azure.vm
+    filters:
+      - type: value
+        key: tags.VM
+        value: "${VM}"
+      - type: value
+        key: properties.provisioningState
+        value: stopped
+    actions:
+      - type: start
+
